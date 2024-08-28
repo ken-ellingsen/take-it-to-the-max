@@ -7,12 +7,17 @@ export default function App() {
   const [showSuccess, setShowSuccess] = useState(false);
   const maxLength = 60;
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setShowSuccess(true);
+  }
+
   return (
     <div className="App">
       <div className="status-update">
         <h1>Super Short Status!</h1>
         <p>Tell us how you are doing in 60 characters or less!</p>
-        <form>
+        <form onSubmit={handleSubmit}>
           <textarea
             className={message.length > maxLength ? "too-long" : ""}
             value={message} 
