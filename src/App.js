@@ -13,7 +13,8 @@ export default function App() {
         <h1>Super Short Status!</h1>
         <p>Tell us how you are doing in 60 characters or less!</p>
         <form>
-          <textarea 
+          <textarea
+            className={message.length > maxLength ? "too-long" : ""}
             value={message} 
             onChange={(e) => setMessage(e.target.value)} 
             placeholder="What's good?"
