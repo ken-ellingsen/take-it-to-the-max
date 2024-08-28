@@ -29,7 +29,7 @@ export default function App() {
             />
             <button 
               type="submit" 
-              disabled={message.length > maxLength}
+              disabled={message.length > maxLength || message.length < 1}
             >
               Tell the world!
             </button>
