@@ -14,24 +14,28 @@ export default function App() {
 
   return (
     <div className="App">
-      <div className="status-update">
-        <h1>Super Short Status!</h1>
-        <p>Tell us how you are doing in 60 characters or less!</p>
-        <form onSubmit={handleSubmit}>
-          <textarea
-            className={message.length > maxLength ? "too-long" : ""}
-            value={message} 
-            onChange={(e) => setMessage(e.target.value)} 
-            placeholder="What's good?"
-          />
-          <button 
-            type="submit" 
-            disabled={message.length > maxLength}
-          >
-            Tell the world!
-          </button>
-        </form>
-      </div>
+      {showSuccess ?
+        <div className="message-success">Thanks for the update!</div>
+        :
+        <div className="status-update">
+          <h1>Super Short Status!</h1>
+          <p>Tell us how you are doing in 60 characters or less!</p>
+          <form onSubmit={handleSubmit}>
+            <textarea
+              className={message.length > maxLength ? "too-long" : ""}
+              value={message} 
+              onChange={(e) => setMessage(e.target.value)} 
+              placeholder="What's good?"
+            />
+            <button 
+              type="submit" 
+              disabled={message.length > maxLength}
+            >
+              Tell the world!
+            </button>
+          </form>
+        </div>
+      }
     </div>
   );
 }
